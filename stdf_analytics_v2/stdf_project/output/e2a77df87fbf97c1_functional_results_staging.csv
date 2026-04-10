@@ -1,0 +1,1 @@
+device_id,file_id,wafer_id,lot_id,test_num,test_name,vector_name,head_num,site_num,passed,alarm,alarm_id,cycle_count,fail_count,repeat_count,rel_vect_addr,xfail_addr,yfail_addr,vect_offset,time_set,op_code,attempt_index,parser_version,ingestion_ts,ingestion_date

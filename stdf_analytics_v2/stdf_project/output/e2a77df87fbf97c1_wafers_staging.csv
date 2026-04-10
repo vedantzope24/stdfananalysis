@@ -1,0 +1,2 @@
+file_id,lot_id,wafer_id,head_num,site_grp,start_time,finish_time,total_devices,pass_count,fail_count,retest_count,abort_count,yield_pct,dppm,ingestion_ts,ingestion_date
+e2a77df87fbf97c1,GAL-LOT,GAL-LOT-02,1,,2001-06-05T20:50:22Z,2001-06-05T22:10:08Z,1569,1389,180,0,,88.5277,114722.75,2026-03-24T15:05:57Z,2026-03-24

@@ -1,0 +1,75 @@
+file_id,lot_id,test_num,test_name_raw,canonical_name,lo_limit_scaled,hi_limit_scaled,orig_unit,si_unit,si_factor,lo_spec,hi_spec,parser_version,ingestion_ts
+e2a77df87fbf97c1,GAL-LOT,1000,glxy_SS_IH     <> glxy_pin2,glxy_ss_ih,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1010,glxy_OSC       <> glxy_pin3,glxy_osc,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1020,glxy_OUTS      <> glxy_pin4S,glxy_outs,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1030,glxy_OUTF      <> glxy_pin4F,glxy_outf,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1040,glxy_VCCS      <> glxy_pin5S,glxy_vccs,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1050,glxy_VCCF      <> glxy_pin5F,glxy_vccf,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1060,glxy_BOOT      <> glxy_pin6,glxy_boot,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1070,glxy_COMP      <> glxy_pin7,glxy_comp,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1080,glxy_FB        <> glxy_pin8,glxy_fb,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1090,glxy_PT        <> glxy_PT,glxy_pt,-0.899999976,-0.400000006,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1100,Abs comp       <> ABS_COM,abs_comp,-550.0,10.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1120,Abs fb         <> ABS_FB,abs_fb,-4.0,0.25,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1130,Ref bef zap    <> REF_BE,ref_bef_zap,3.177999973,3.563999891,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1132,sim1 ref <> Simule_1,sim1_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1134,sim2 ref <> Simule_2,sim2_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1136,sim3 ref <> Simule_3,sim3_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1138,sim4 ref <> Simule_4,sim4_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1140,sim5 ref <> Simule_5,sim5_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1142,sim6 ref <> Simule_6,sim6_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1144,sim7 ref <> Simule_7,sim7_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1146,sim8 ref <> Simule_8,sim8_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1148,sim9 ref <> Simule_9,sim9_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1150,sim10 ref <> Simule_10,sim10_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1152,sim11 ref <> Simule_11,sim11_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1154,sim12 ref <> Simule_12,sim12_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1156,sim13 ref <> Simule_13,sim13_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1158,sim14 ref <> Simule_14,sim14_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1160,sim15 ref <> Simule_15,sim15_ref,3.157999992,3.59800005,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1170,Ref best     <> REF_BEST_SIM,ref_best,3.339999914,3.38499999,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1175,indice        <> REF_FLAG,indice,-1.0,17.0,,,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1180,Zap current   <> ZAP_REF,zap_current,300.000012,1500.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1190,Ref aft zap     <> REF,ref_aft_zap,3.339999914,3.38499999,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1195,Ref recovery    <> VREF_REC,ref_recovery,-180.000007,180.000007,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1200,Ref precision   <> VREF_TGT,ref_precision,-3.5,3.5,%,%,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1210,Line 8/55v      <> LN_REG,line_855v,-7.5,7.5,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1220,Iq dut_cycle=0  <> IQ,iq_dut_cycle0,0.6,3.4,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1230,Iq st_by 24v    <> IQ_SBY_24,iq_st_by_24v,50.0,180.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1240,Iq st_by 55v    <> IQ_SBY_55,iq_st_by_55v,50.0,280.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1250,Abs supply      <> ABS_VCC,abs_supply,50.0,380.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1260,Iq tot          <> IQ_TOT,iq_tot,1.7,5.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1270,Freq at 8v      <> FQ_1,freq_at_8v,93.0,107.0,hz,Hz,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1280,Uvlo up th      <> UVLO_UP,uvlo_up_th,6.800000191,8.0,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1300,Uvlo hysteresis  <> UVLO_HYS,uvlo_hysteresis,0.0,,,,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1310,Freq at 55v     <> FQ_2,freq_at_55v,93.0,107.0,hz,Hz,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1320,Freq stability  <> FQ_STAB,freq_stability,-5.0000001,5.0000001,%,%,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1330,Freq max        <> FQ_MAX,freq_max,220.0,480.0,hz,Hz,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1340,I inh low       <> I_IH_LO,i_inh_low,-12.0,-2.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1350,Inh th up        <> INH_TH_UP,inh_th_up,1.5,2.400000095,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1360,Inh th down      <> INH_TH_DOWN,inh_th_down,0.899999976,1.700000048,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1370,Inh hyste        <> INH_HYS,inh_hyste,0.400000006,0.899999976,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1380,Iss charge      <> SS_ICH,iss_charge,-46.0,-34.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1390,Iss discharge    <> SS_IDCH,iss_discharge,8.0,12.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1400,Lkg Mos          <> LK_PWR,lkg_mos,-60.0,2.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1410,Abs out          <> OUT_MAX,abs_out,-29.999999,5.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1420,Abs boot         <> ABS_BOOT,abs_boot,0.04,1.2,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1430,Lkg boot Mos off <> IBOOT_OFF,lkg_boot_mos_off,10.0,100.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1440,Lkg boot         <> LKG_BOOT,lkg_boot,0.0,0.9,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1450,Drop of the Mos <> DROP_10V,drop_of_the_mos,0.075000003,0.540000021,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1460,Rds on          <> RDS_ON,rds_on,0.050000001,0.360000014,ohm,Ω,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1470,Imax bef zap	 <> IMAX,imax_bef_zap,1.870000005,3.309999943,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1500,Imax aft zap   <> IMAX_AFT,imax_aft_zap,2.11500001,2.88499999,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1510,Imax precision   <> IMAX_TGT,imax_precision,-40.0000006,40.0000006,%,%,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1520,Max duty cycle  <> MAX_DUT,max_duty_cycle,95.4999983,99.5000005,%,%,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1550,Osc val 24v     <> OSC_VL24,osc_val_24v,0.800000012,0.904999971,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1560,Osc pk 55v       <> OSC_PK55,osc_pk_55v,9.199999809,10.0,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1570,Osc pk 8v        <> OSC_PK8,osc_pk_8v,2.019999981,2.279999971,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1580,Gain op_loop     <> EA_OLG,gain_op_loop,52.0,88.0,db,db,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1590,Svrr             <> EA_SVRR,svrr,62.0,98.0,db,db,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1600,Bias EA         <> EA_BIAS,bias_ea,1.05,2.95,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1610,Transcond       <> EA_TRANS,transcond,1.2,5.8,,,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1620,EA swing high   <> EA_SWH,ea_swing_high,10.399999619,13.899999619,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1630,EA swing low	 <> EA_SWL,ea_swing_low,-0.050000001,0.600000024,v,V,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1640,Src out I       <> EA_SRC,src_out_i,-380.0,-215.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
+e2a77df87fbf97c1,GAL-LOT,1650,Sink out I      <> EA_SNK,sink_out_i,220.0,380.0,a,A,1.0,,,1.0.0,2026-03-24T15:05:57Z
