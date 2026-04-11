@@ -1,0 +1,2 @@
+file_id,lot_id,wafer_id,head_num,site_grp,start_time,finish_time,total_devices,pass_count,fail_count,retest_count,abort_count,yield_pct,dppm,ingestion_ts,ingestion_date
+ac19e71da590af0a,W118892,R114792-03,1,,2001-06-06T01:13:45Z,2001-06-06T02:48:08Z,1619,1378,241,0,,85.1143,148857.32,2026-03-24T15:11:43Z,2026-03-24

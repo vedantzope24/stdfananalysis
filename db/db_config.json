@@ -1,0 +1,7 @@
+{
+  "host": "10.85.137.13",
+  "port": 3306,
+  "user": "root",
+  "password": "root123",
+  "database": "stdf_analytics"
+}
