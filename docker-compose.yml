@@ -1,24 +1,131 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: stdf_mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: stdf_analytics
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
     ports:
-      - "3306:3306"
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - mysql_data:/var/lib/mysql
-      # This automatically loads the schema when the container is created for the first time
-      - ./db/schema_mysql.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init_postgres.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot123"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:23.8-alpine
+    container_name: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    environment:
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DB: ${CLICKHOUSE_DB}
+    volumes:
+      - chdata:/var/lib/clickhouse
+      - ./db/init_clickhouse.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./db/config.xml:/etc/clickhouse-server/config.d/memory.xml:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  airflow-webserver:
+    image: apache/airflow:2.7.3
+    container_name: airflow-webserver
+    restart: always
+    ports:
+      - "8080:8080"
+    environment: &airflow_env
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.3
+    container_name: airflow-scheduler
+    restart: always
+    command: scheduler
+    environment: *airflow_env
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  airflow-init:
+    image: apache/airflow:2.7.3
+    container_name: airflow-init
+    environment: *airflow_env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "airflow db migrate && 
+      airflow users create 
+      --username ${AIRFLOW_ADMIN_USER} 
+      --password ${AIRFLOW_ADMIN_PASSWORD} 
+      --firstname Admin 
+      --lastname User 
+      --role Admin 
+      --email admin@example.com"
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-service:
+    profiles: ["phase5"]
+    build:
+      context: ./api
+    container_name: api-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9001:9001"
+      - "9002:9000"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - miniodata:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9001/minio/health/live"]
       interval: 10s
       timeout: 5s
       retries: 5
 
 volumes:
-  mysql_data:
+  pgdata:
+  chdata:
+  miniodata:

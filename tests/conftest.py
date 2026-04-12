@@ -10,12 +10,12 @@ def test_data_dir() -> Path:
 
 @pytest.fixture
 def demo_stdf_path(test_data_dir) -> Path:
-    return test_data_dir / "demofile.stdf"
+    return test_data_dir / "golden_sample.stdf"
 
 @pytest.fixture
 def lot2_stdf_path(test_data_dir) -> Path:
-    return test_data_dir / "lot2.stdf"
+    return test_data_dir / "test_big_endian.stdf"
 
 @pytest.fixture
 def missing_mrr_stdf_path(test_data_dir) -> Path:
-    return test_data_dir / "test_3_missing_mrr.stdf"
+    return test_data_dir / "error_invalid_strings.stdf"

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <max_server_memory_usage_to_ram_ratio>0.6</max_server_memory_usage_to_ram_ratio>
+    <max_memory_usage>4294967296</max_memory_usage>
+    <max_concurrent_queries>20</max_concurrent_queries>
+</clickhouse>
