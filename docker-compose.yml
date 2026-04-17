@@ -1,6 +1,5 @@
-version: '3.8'
-
 services:
+
   postgres:
     image: postgres:15-alpine
     container_name: postgres
@@ -32,29 +31,52 @@ services:
     volumes:
       - chdata:/var/lib/clickhouse
       - ./db/init_clickhouse.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      # config.xml: server-level settings only (listen_host, max_concurrent_queries, etc.)
       - ./db/config.xml:/etc/clickhouse-server/config.d/memory.xml:ro
+      # users.xml: user-level settings (max_memory_usage, etc.)
+      - ./db/users.xml:/etc/clickhouse-server/users.d/memory_profile.xml:ro
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      # Use 127.0.0.1 to force IPv4 — avoids IPv6 resolution failure on WSL2/Windows Docker
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:8123/ping"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 30s
 
   airflow-webserver:
     image: apache/airflow:2.7.3
     container_name: airflow-webserver
     restart: always
+    command: webserver
     ports:
       - "8080:8080"
     environment: &airflow_env
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__CORE__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+      # Correct env var name for webserver secret key
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+      PYTHONPATH: /opt/airflow/dags
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DB: ${CLICKHOUSE_DB}
+      _PIP_ADDITIONAL_REQUIREMENTS: clickhouse-driver
     volumes:
       - ./airflow_dags:/opt/airflow/dags
+      # Mount the parser package so DAGs can import it
+      - ./parser:/opt/airflow/dags/parser
     depends_on:
       postgres:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   airflow-scheduler:
     image: apache/airflow:2.7.3
@@ -64,6 +86,10 @@ services:
     environment: *airflow_env
     volumes:
       - ./airflow_dags:/opt/airflow/dags
+      - ./parser:/opt/airflow/dags/parser
+      # Mount STDF files so the DAG can access them
+      - ./demofile.stdf:/opt/airflow/stdf/demofile.stdf:ro
+      - ./lot2.stdf:/opt/airflow/stdf/lot2.stdf:ro
     depends_on:
       postgres:
         condition: service_healthy
@@ -76,13 +102,13 @@ services:
       postgres:
         condition: service_healthy
     command: >
-      bash -c "airflow db migrate && 
-      airflow users create 
-      --username ${AIRFLOW_ADMIN_USER} 
-      --password ${AIRFLOW_ADMIN_PASSWORD} 
-      --firstname Admin 
-      --lastname User 
-      --role Admin 
+      bash -c "airflow db migrate &&
+      airflow users create
+      --username ${AIRFLOW_ADMIN_USER}
+      --password ${AIRFLOW_ADMIN_PASSWORD}
+      --firstname Admin
+      --lastname User
+      --role Admin
       --email admin@example.com"
 
   redis:

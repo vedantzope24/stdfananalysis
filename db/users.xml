@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <profiles>
+        <default>
+            <!-- max_memory_usage is a user/query-level setting — must be here, NOT in config.xml -->
+            <max_memory_usage>4294967296</max_memory_usage>
+        </default>
+    </profiles>
+</clickhouse>

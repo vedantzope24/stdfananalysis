@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <clickhouse>
+    <!-- Force IPv4-only listening so the healthcheck wget can reach localhost:8123 -->
+    <listen_host>0.0.0.0</listen_host>
+
+    <!-- Server-level memory cap (this is the correct section for server settings) -->
     <max_server_memory_usage_to_ram_ratio>0.6</max_server_memory_usage_to_ram_ratio>
-    <max_memory_usage>4294967296</max_memory_usage>
+
+    <!-- max_concurrent_queries is a server-level setting — correct here -->
     <max_concurrent_queries>20</max_concurrent_queries>
 </clickhouse>

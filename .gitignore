@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+env/
+venv/
+ENV/
+*.stdf
+# Keep specifically tracked data if needed, but usually stdf is large
+!demofile.stdf
+!lot2.stdf
