@@ -181,61 +181,14 @@ def t_parse_and_load_postgres(**ctx):
     if dag_folder not in sys.path:
         sys.path.insert(0, dag_folder)
 
-    try:
-        from parser.stdf_parser import STDFParser
-        parser = STDFParser(stdf_path)
-        parsed = parser.parse()
-    except ImportError:
-        # Parser not accessible - build minimal data from file header
-        print("[T3] WARNING: parser import failed; using minimal stub data for smoke-test.")
-        parsed = _build_stub_data(file_id, stdf_path)
+    from parser.stdf_parser import STDFParser
+    parser = STDFParser(stdf_path)
+    parsed = parser.parse()
 
     _write_to_postgres(parsed, file_id, file_hash, stdf_path)
     print(f"[T3] Parse + Postgres load complete for {os.path.basename(stdf_path)}.")
 
 
-def _build_stub_data(file_id: str, stdf_path: str) -> Dict[str, Any]:
-    """Minimal valid data set for end-to-end smoke testing."""
-    now = _now_utc()
-    return {
-        "lot_id": "LOT-DEMO-001",
-        "part_type": "DEMO_CHIP",
-        "product_id": "DEMO",
-        "mir": {
-            "lot_id": "LOT-DEMO-001",
-            "part_type": "DEMO_CHIP",
-            "node_name": "FAB1",
-            "tstr_name": "TESTER1",
-            "job_name": "demo_job",
-            "oper_name": "operator",
-            "test_cod": "FT",
-            "setup_t": now,
-            "start_t": now,
-        },
-        "prrs": [
-            {
-                "part_id": "PART-001",
-                "x_coord": 1,
-                "y_coord": 1,
-                "site_num": 1,
-                "head_num": 1,
-                "hard_bin": 1,
-                "soft_bin": 1,
-                "pass_fail": "P",
-                "results": [
-                    {
-                        "test_num": 1000,
-                        "test_name": "vdd_voltage_check",
-                        "result": 3.295,
-                        "lo_limit": 3.1,
-                        "hi_limit": 3.5,
-                        "units": "V",
-                        "pass_fail": "P",
-                    }
-                ],
-            }
-        ],
-    }
 
 
 def _write_to_postgres(parsed: Any, file_id: str, file_hash: str, stdf_path: str):
